@@ -32,22 +32,22 @@ app.UseCors("Policy");
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.UseSwaggerUI(options => {
+    // app.UseSwaggerUI(options => {
 
-        // // For our UI to be at ROOT
-        // options.RoutePrefix = "";
+    //     // // For our UI to be at ROOT
+    //     // options.RoutePrefix = "";
 
-        // options.SwaggerEndpoint("/openapi/v1.json", "My WebAPI");
-
-        // Scaler
-        app.MapScalarApiReference(options => {
-            options
-                .WithTitle("My WebAPI")
-                .WithTheme(ScalarTheme.Mars)
-                .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
-        });
-    });
+    //     // options.SwaggerEndpoint("/openapi/v1.json", "My WebAPI");  
+    // });    
 }
+
+// Scaler
+app.MapScalarApiReference(options => {
+        options
+            .WithTitle("My WebAPI")
+            .WithTheme(ScalarTheme.Mars)
+            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+});
 
 // var summaries = new[]
 // {
@@ -68,6 +68,7 @@ if (app.Environment.IsDevelopment())
 // })
 // .WithName("GetWeatherForecast");
 
+app.UseHttpsRedirection();
 
 var route = app.MapGroup("/api/students");
 

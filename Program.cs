@@ -43,10 +43,10 @@ if (app.Environment.IsDevelopment())
 
 // Scaler
 app.MapScalarApiReference(options => {
-        options
-            .WithTitle("My WebAPI")
-            .WithTheme(ScalarTheme.Mars)
-            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+    options
+        .WithTitle("My WebAPI")
+        .WithTheme(ScalarTheme.Mars)
+        .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
 });
 
 // var summaries = new[]
